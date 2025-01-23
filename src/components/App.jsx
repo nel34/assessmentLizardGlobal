@@ -26,11 +26,54 @@ function App() {
       {error && <p>Error: {error}</p>}
 
       {/* Display posts in a list */}
-      <ul>
-        {posts.map((post, index) => (
-          <li key={index}>
+      <ul style={{ listStyle: 'none', padding: 0 }}>
+        {posts.map((post) => (
+          <li key={post.id} style={{ marginBottom: '20px', borderBottom: '1px solid #ccc', paddingBottom: '10px' }}>
+            {/* Title */}
             <h2>{post.title}</h2>
-            <p>{post.category}</p>
+            
+            {/* Publish Date */}
+            <p>
+              <strong>Published on: </strong>
+              {new Date(post.publishDate).toLocaleDateString()}
+            </p>
+
+            {/* Author */}
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <img
+                src={post.author.avatar}
+                alt={post.author.name}
+                style={{ borderRadius: '50%', width: '50px', height: '50px', marginRight: '10px' }}
+              />
+              <p>By: {post.author.name}</p>
+            </div>
+
+            {/* Summary */}
+            <p>{post.summary}</p>
+
+            {/* Categories */}
+            <div>
+              <strong>Categories: </strong>
+              {post.categories.map((category) => (
+                <div key={category.id} style={{ marginBottom: '5px' }}>
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      background: '#f0f0f0',
+                      padding: '5px 10px',
+                      marginRight: '10px',
+                      borderRadius: '15px',
+                      fontSize: '0.9em',
+                    }}
+                  >
+                    {category.name}
+                  </span>
+                  <p style={{ margin: 0, fontSize: '0.8em', color: '#555' }}>
+                    <strong>ID: </strong>{category.id}
+                  </p>
+                </div>
+              ))}
+            </div>
           </li>
         ))}
       </ul>
@@ -39,4 +82,3 @@ function App() {
 }
 
 export default App;
-
