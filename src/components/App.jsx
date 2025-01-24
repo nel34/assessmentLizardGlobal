@@ -180,7 +180,7 @@ function App() {
 
       {/* Footer */}
       <footer style={{ textAlign: 'center', marginTop: '20px', color: '#666' }}>
-        <p>&copy; 2025 My App</p>
+        <p>&copy; 2025 LizardGlobal Assessment</p>
       </footer>
     </div>
   );
