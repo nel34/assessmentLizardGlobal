@@ -1,0 +1,197 @@
+/* Main container */
+.container {
+    max-width: 1000px; /* Limit the container's width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add spacing inside the container */
+  }
+  
+  /* Header section */
+  .header {
+    text-align: left; /* Align header content to the left */
+    margin-bottom: 20px; /* Add space below the header */
+  }
+  
+  /* Error message */
+  .error {
+    color: red; /* Use red for error messages */
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  /* Filter section */
+  .filter-section {
+    margin-bottom: 20px; /* Add space below the filter section */
+  }
+  
+  .filter-label {
+    font-weight: bold; /* Make the label bold */
+    margin-right: 10px; /* Add space to the right of the label */
+  }
+  
+  .filter-select {
+    padding: 5px 10px; /* Add padding inside the dropdown */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Round the corners */
+    font-size: 1rem; /* Set font size */
+  }
+  
+  /* Posts list */
+  .post-list {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+  }
+  
+  .post-item {
+    margin-bottom: 20px; /* Add space below each post */
+    border: 1px solid #ccc; /* Add a border around posts */
+    border-radius: 5px; /* Round the corners */
+    padding: 15px; /* Add spacing inside the post */
+    background: #f9f9f9; /* Set background color */
+  }
+  
+  /* Post title */
+  .post-title {
+    margin-bottom: 10px; /* Add space below the title */
+  }
+  
+  /* Post date */
+  .post-date {
+    margin-bottom: 5px; /* Add space below the date */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    color: #666; /* Set text color */
+  }
+  
+  /* Author section */
+  .author-section {
+    display: flex; /* Align items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Add space below the section */
+  }
+  
+  .author-image {
+    border-radius: 50%; /* Make the image circular */
+    width: 50px; /* Set image width */
+    height: 50px; /* Set image height */
+    margin-right: 10px; /* Add space to the right of the image */
+  }
+  
+  .author-name {
+    margin: 0; /* Remove margin */
+    font-size: 0.9rem; /* Set font size */
+    color: #333; /* Set text color */
+  }
+  
+  /* Post summary */
+  .post-summary {
+    margin-bottom: 10px; /* Add space below the summary */
+    color: #444; /* Set text color */
+  }
+  
+  /* Categories */
+  .category {
+    margin-bottom: 5px; /* Add space below each category */
+  }
+  
+  .category-badge {
+    display: inline-block; /* Make badges inline elements */
+    background: #e0e0e0; /* Set background color */
+    padding: 5px 10px; /* Add padding inside badges */
+    margin-right: 10px; /* Add space to the right of badges */
+    border-radius: 15px; /* Round the corners */
+    font-size: 0.9em; /* Slightly smaller font size */
+    color: #333; /* Set text color */
+  }
+  
+  .category-id {
+    margin: 0; /* Remove margin */
+    font-size: 0.8em; /* Slightly smaller font size */
+    color: #777; /* Set text color */
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex; /* Align items horizontally */
+    justify-content: center; /* Center the pagination controls */
+    margin-top: 20px; /* Add space above the pagination */
+  }
+  
+  .pagination-button {
+    padding: 10px 15px; /* Add padding inside buttons */
+    margin: 0 5px; /* Add space between buttons */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Round the corners */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  .pagination-button-active {
+    background-color: #007bff; /* Set active button background color */
+    color: #fff; /* Set active button text color */
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center; /* Center align footer content */
+    margin-top: 20px; /* Add space above the footer */
+    color: #666; /* Set text color */
+  }
+  
+  /* ------------------- Media Queries ------------------- */
+  
+  /* Responsive design for tablets (max width: 768px) */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px; /* Reduce container padding */
+    }
+  
+    .post-item {
+      padding: 10px; /* Adjust post padding for smaller screens */
+    }
+  
+    .post-title {
+      font-size: 1.2rem; /* Reduce title font size */
+    }
+  
+    .filter-select {
+      font-size: 0.9rem; /* Reduce filter dropdown font size */
+    }
+  
+    .pagination-button {
+      padding: 8px 12px; /* Reduce button size */
+      font-size: 0.9rem; /* Adjust font size */
+    }
+  }
+  
+  /* Responsive design for mobile devices (max width: 480px) */
+  @media (max-width: 480px) {
+    .container {
+      padding: 5px; /* Further reduce container padding */
+    }
+  
+    .author-section {
+      flex-direction: column; /* Stack author image and name vertically */
+      align-items: flex-start; /* Align content to the left */
+    }
+  
+    .author-image {
+      margin-bottom: 10px; /* Add space below the image */
+    }
+  
+    .filter-select {
+      width: 100%; /* Make dropdown full width */
+      font-size: 0.85rem; /* Further reduce font size */
+    }
+  
+    .post-title {
+      font-size: 1rem; /* Further reduce title font size */
+    }
+  
+    .pagination {
+      flex-wrap: wrap; /* Allow pagination buttons to wrap */
+      gap: 5px; /* Add spacing between buttons */
+    }
+  
+    .pagination-button {
+      padding: 5px 10px; /* Reduce button padding */
+      font-size: 0.8rem; /* Reduce font size */
+    }
+  }
+  
