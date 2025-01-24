@@ -3,10 +3,12 @@ import { fetchPosts } from '../Services/api'; // Import the fetchPosts function
 
 function App() {
   const [posts, setPosts] = useState([]); // All posts from the API
-  const [filteredPosts, setFilteredPosts] = useState([]); // Posts to display
+  const [filteredPosts, setFilteredPosts] = useState([]); // Posts to display after filtering
+  const [visiblePosts, setVisiblePosts] = useState([]); // Posts currently visible
   const [categories, setCategories] = useState([]); // Available categories
   const [selectedCategory, setSelectedCategory] = useState('All'); // Selected category
   const [error, setError] = useState(null); // State to handle errors
+  const [postsPerPage, setPostsPerPage] = useState(5); // Number of posts to display at a time
 
   // Fetch posts and categories from the API
   useEffect(() => {
@@ -15,6 +17,7 @@ function App() {
         const data = await fetchPosts(); // Call the API
         setPosts(data.posts); // Store all posts
         setFilteredPosts(data.posts); // Initialize with all posts
+        setVisiblePosts(data.posts.slice(0, postsPerPage)); // Show initial posts
 
         // Extract unique categories from posts
         const uniqueCategories = ['All', ...new Set(data.posts.flatMap(post => post.categories.map(c => c.name)))];
@@ -25,9 +28,9 @@ function App() {
     };
 
     getPosts();
-  }, []);
+  }, [postsPerPage]);
 
-  // Update filtered posts when selectedCategory changes
+  // Update filtered posts and visible posts when selectedCategory changes
   useEffect(() => {
     if (selectedCategory === 'All') {
       setFilteredPosts(posts); // Show all posts if "All" is selected
@@ -37,6 +40,15 @@ function App() {
       );
     }
   }, [selectedCategory, posts]);
+
+  useEffect(() => {
+    setVisiblePosts(filteredPosts.slice(0, postsPerPage)); // Update visible posts when filtered posts change
+  }, [filteredPosts, postsPerPage]);
+
+  // Load more posts
+  const loadMorePosts = () => {
+    setPostsPerPage(postsPerPage + 5);
+  };
 
   return (
     <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
@@ -68,9 +80,9 @@ function App() {
         </select>
       </div>
 
-      {/* Display filtered posts */}
+      {/* Display filtered and visible posts */}
       <ul style={{ listStyle: 'none', padding: 0 }}>
-        {filteredPosts.map((post) => (
+        {visiblePosts.map((post) => (
           <li
             key={post.id}
             style={{
@@ -81,14 +93,11 @@ function App() {
               background: '#f9f9f9',
             }}
           >
-            {/* Title */}
             <h2 style={{ marginBottom: '10px' }}>{post.title}</h2>
             <p style={{ marginBottom: '5px', fontSize: '0.9rem', color: '#666' }}>
               <strong>Published on: </strong>
               {new Date(post.publishDate).toLocaleDateString()}
             </p>
-
-            {/* Author */}
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
               <img
                 src={post.author.avatar}
@@ -100,11 +109,7 @@ function App() {
                 {post.author.name}
               </p>
             </div>
-
-            {/* Summary */}
             <p style={{ marginBottom: '10px', color: '#444' }}>{post.summary}</p>
-
-            {/* Categories */}
             <div>
               <strong>Categories: </strong>
               {post.categories.map((category) => (
@@ -131,6 +136,26 @@ function App() {
           </li>
         ))}
       </ul>
+
+      {/* Load more button */}
+      {visiblePosts.length < filteredPosts.length && (
+        <button
+          onClick={loadMorePosts}
+          style={{
+            display: 'block',
+            margin: '20px auto',
+            padding: '10px 20px',
+            fontSize: '1rem',
+            backgroundColor: '#007bff',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+          }}
+        >
+          Load more
+        </button>
+      )}
     </div>
   );
 }
