@@ -1,0 +1,136 @@
+/* Main container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header section */
+  .header {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  /* Error message */
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Filter section */
+  .filter-section {
+    margin-bottom: 20px;
+  }
+  
+  .filter-label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .filter-select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Posts list */
+  .post-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .post-item {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    background: #f9f9f9;
+  }
+  
+  /* Post title */
+  .post-title {
+    margin-bottom: 10px;
+  }
+  
+  /* Post date */
+  .post-date {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Author section */
+  .author-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .author-image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .author-name {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  /* Post summary */
+  .post-summary {
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  /* Categories */
+  .category {
+    margin-bottom: 5px;
+  }
+  
+  .category-badge {
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  .category-id {
+    margin: 0;
+    font-size: 0.8em;
+    color: #777;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pagination-button-active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+  }
+  
