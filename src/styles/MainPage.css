@@ -142,6 +142,26 @@
   color: #fff;
 }
 
+/* Animations for post transitions */
+.post-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.post-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.post-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.post-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
 /* Responsive styling */
 @media (max-width: 768px) {
   .post-item {
