@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { fetchPosts } from '../Services/api';
 import '../styles/MainPage.css';
+import { CSSTransition, TransitionGroup } from 'react-transition-group'; // Import animation components
 
 function MainPage() {
   const [posts, setPosts] = useState([]);
@@ -14,7 +15,6 @@ function MainPage() {
 
   // Get initial filter from query string
   const initialCategory = searchParams.get('category') || 'All';
-
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
   useEffect(() => {
@@ -75,44 +75,46 @@ function MainPage() {
         </select>
       </section>
 
-      {/* Posts List */}
-      <ul className="post-list">
+      {/* Posts List with Animation */}
+      <TransitionGroup component="ul" className="post-list">
         {visiblePosts.map((post) => (
-          <li key={post.id} className="post-item">
-            <article>
-              {/* Post Logo */}
-              <img src={post.author.avatar} alt={post.author.name} className="post-logo" />
+          <CSSTransition key={post.id} timeout={300} classNames="post">
+            <li className="post-item">
+              <article>
+                {/* Post Logo */}
+                <img src={post.author.avatar} alt={post.author.name} className="post-logo" />
 
-              <header>
-                <h2 className="post-title">{post.title}</h2>
-              </header>
+                <header>
+                  <h2 className="post-title">{post.title}</h2>
+                </header>
 
-              {/* Categories */}
-              <footer className="post-categories">
-                <strong>Categories: </strong>
-                <div className="category-list">
-                  {post.categories.map((category) => (
-                    <div key={category.id} className="category-item">
-                      <span className="category-badge">{category.name}</span>
-                      <p className="category-id">
-                        <strong>ID: </strong>
-                        {category.id}
-                      </p>
-                    </div>
-                  ))}
+                {/* Categories */}
+                <footer className="post-categories">
+                  <strong>Categories: </strong>
+                  <div className="category-list">
+                    {post.categories.map((category) => (
+                      <div key={category.id} className="category-item">
+                        <span className="category-badge">{category.name}</span>
+                        <p className="category-id">
+                          <strong>ID: </strong>
+                          {category.id}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </footer>
+
+                {/* Detail Button */}
+                <div className="post-actions">
+                  <Link to={`/post/${post.id}`} className="detail-button">
+                    Detail
+                  </Link>
                 </div>
-              </footer>
-
-              {/* Detail Button */}
-              <div className="post-actions">
-                <Link to={`/post/${post.id}`} className="detail-button">
-                  Detail
-                </Link>
-              </div>
-            </article>
-          </li>
+              </article>
+            </li>
+          </CSSTransition>
         ))}
-      </ul>
+      </TransitionGroup>
 
       {/* Pagination */}
       <nav className="pagination">
