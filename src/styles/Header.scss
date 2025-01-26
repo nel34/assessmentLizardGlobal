@@ -1,18 +1,20 @@
+/* Styles for the header container */
 .header {
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: transparent;
   padding: 20px;
   font-family: Arial, sans-serif;
   font-size: 1.5rem;
   color: #333;
-  background-color: transparent;
 }
 
+/* Styles for the header title (h1 element) */
 .header h1 {
   margin: 0;
   font-weight: bold;
 }
 
+/* Styles for the header link */
 .header-link {
   display: inline-block;
   text-decoration: none;
@@ -22,5 +24,35 @@
   &:hover {
     transform: scale(1.2);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Media query for tablet devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px;
+    font-size: 1.3rem;
+  }
+
+  .header-link {
+    &:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.3), 0 0 16px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+/* Media query for phone devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+
+  .header-link {
+    &:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.2);
+    }
   }
 }

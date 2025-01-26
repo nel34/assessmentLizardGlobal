@@ -1,3 +1,4 @@
+/* Styling for the footer container */
 .footer {
   text-align: center;
   margin-top: 20px;
@@ -7,6 +8,23 @@
   font-size: 0.9rem;
 }
 
+/* Styling for paragraphs inside the footer */
 .footer p {
   margin: 0;
+}
+
+/* Media query for tablet devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .footer {
+    padding: 8px 0; 
+    font-size: 0.85rem; 
+  }
+}
+
+/* Media query for phone devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .footer {
+    padding: 5px 0; 
+    font-size: 0.8rem; 
+  }
 }

@@ -1,25 +1,25 @@
-/* Post detail container */
+/* Container for the entire post detail page */
 .post-detail-container {
   padding: 20px;
-  background: #f9f9f9; /* Couleur de fond mise à jour pour correspondre à celle de MainPage */
+  background: #f9f9f9; 
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Post content */
+/* Content section for post details */
 .post-detail-content {
   margin-bottom: 10px;
   font-size: 1rem;
   color: #444;
 }
 
-/* Post author */
+/* Styling for the author information */
 .post-detail-author {
   font-size: 0.9rem;
   color: #007bff;
 }
 
-/* Back link */
+/* Link for going back to the previous page */
 .back-link {
   display: inline-block;
   margin-top: 10px;
@@ -28,6 +28,7 @@
   font-weight: bold;
 }
 
+/* Button for returning to the main page */
 .back-to-main-button {
   display: inline-block;
   margin-top: 20px;
@@ -42,8 +43,34 @@
   text-align: center;
 }
 
+/* Hover effect for the back-to-main button */
 .back-to-main-button:hover {
   background-color: #555;
   transform: scale(1.05);
 }
 
+/* Responsive styling for tablets */
+@media (max-width: 768px) {
+  .post-detail-container {
+    padding: 15px;
+  }
+
+  .back-to-main-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive styling for mobile devices */
+@media (max-width: 480px) {
+  .post-detail-container {
+    padding: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+  .back-to-main-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

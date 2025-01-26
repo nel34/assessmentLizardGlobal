@@ -1,4 +1,4 @@
-/* Main container for the posts */
+/* Main container for individual post items */
 .post-item {
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -7,15 +7,16 @@
   background: #f9f9f9;
   transition: box-shadow 0.3s ease-in-out;
   display: flex;
-  gap: 15px; /* Add spacing between the image and content */
-  align-items: flex-start; /* Align items to the top */
+  gap: 15px;
+  align-items: flex-start;
 }
 
+/* Hover effect for post items */
 .post-item:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Augmentation de l'ombre */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
 }
 
-
+/* Header section for posts */
 .post-header {
   flex: 1;
   display: flex;
@@ -24,24 +25,29 @@
   gap: 10px;
 }
 
+/* Styling for post logos (images) */
 .post-logo {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
+/* Section for categories of posts */
 .post-categories {
   margin-top: 20px;
 }
 
+/* List of categories */
 .category-list {
   margin-top: 10px;
 }
 
+/* Individual category item */
 .category-item {
   margin-bottom: 10px;
 }
 
+/* Badge-style display for category names */
 .category-badge {
   display: inline-block;
   background: #e0e0e0;
@@ -52,20 +58,22 @@
   color: #333;
 }
 
+/* Category ID text styling */
 .category-id {
   font-size: 0.8em;
   color: #777;
 }
 
-/* Detail button styling */
+/* Section for post action buttons */
 .post-actions {
   margin-top: 15px;
 }
 
+/* Styling for the detail button */
 .detail-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #444; /* Gris foncé */
+  background-color: #444;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -74,23 +82,27 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Hover effect for the detail button */
 .detail-button:hover {
-  background-color: #333; /* Gris encore plus foncé */
-  transform: scale(1.1); /* Zoom sur le bouton */
+  background-color: #333;
+  transform: scale(1.1);
 }
 
-/* Filter Section */
+/* Section for the category filter */
 .filter-section {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  margin-left: 40px;
   gap: 10px;
 }
 
+/* Label styling for the filter */
 .filter-label {
   font-weight: bold;
 }
 
+/* Wrapper for the filter select element */
 .filter-wrapper {
   display: inline-block;
   border: 2px solid black;
@@ -98,37 +110,39 @@
   overflow: hidden;
 }
 
+/* Styling for the filter dropdown */
 .filter-select {
   padding: 8px 12px;
-  border: 2px solid black; /* Ajout d'une bordure noire */
-  border-radius: 10px; /* Ajout de coins arrondis */
+  border: 2px solid black;
+  border-radius: 10px;
   font-size: 1rem;
-  color: black; /* Texte noir */
+  color: black;
   appearance: none;
   outline: none;
   cursor: pointer;
   background-color: #f9f9f9;
-  transition: all 0.3s ease-in-out; /* Animation sur le hover */
+  transition: all 0.3s ease-in-out;
 }
 
+/* Hover effect for the filter dropdown */
 .filter-select:hover {
-  background-color: #e6e6e6; /* Change légèrement la couleur au hover */
-  transform: scale(1.05); /* Agrandissement léger au hover */
+  background-color: #e6e6e6;
+  transform: scale(1.05);
 }
 
-
-/* Pagination styling */
+/* Container for pagination buttons */
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
+/* Styling for individual pagination buttons */
 .pagination-button {
   padding: 10px 15px;
   margin: 0 5px;
   border: 1px solid #ccc;
-  background-color: #333; /* Same as the "Detail" button */
+  background-color: #333;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
@@ -136,56 +150,92 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Hover effect for pagination buttons */
 .pagination-button:hover {
-  background-color: #000; /* Same hover effect as the "Detail" button */
+  background-color: #000;
   transform: scale(1.05);
 }
 
+/* Active pagination button styling */
 .pagination-button-active {
-  background-color: #000; /* To differentiate it from other buttons */
+  background-color: #000;
   color: #fff;
-  border: 2px solid red; /* Add a red border to the active button */
+  border: 2px solid red;
   border-radius: 5px;
 }
 
-/* Animations for post transitions */
-.post-enter {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-.post-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
-}
-.post-exit {
-  opacity: 1;
-  transform: translateY(0);
-}
-.post-exit-active {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 300ms, transform 300ms;
-}
-
-/* Responsive styling */
+/* Responsive styling for tablet screens */
 @media (max-width: 768px) {
+  /* Adjust post layout for smaller screens */
   .post-item {
     padding: 10px;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%; 
   }
 
+  /* Adjust filter section for smaller screens */
+  .filter-section {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 90%;
+  }
+
+  /* Adjust post title font size */
   .post-title {
     font-size: 1.2rem;
   }
 
+  /* Adjust detail button padding and font size */
   .detail-button {
     padding: 8px 15px;
     font-size: 0.9rem;
   }
 
+  /* Add padding for pagination buttons */
+  .pagination {
+    padding: 0 15px;
+  }
+
+  /* Adjust pagination button size */
   .pagination-button {
-    padding: 8px 15px;
+    padding: 8px 12px;
     font-size: 0.9rem;
+  }
+}
+
+/* Responsive styling for phone screens */
+@media (max-width: 480px) {
+  /* Adjust post layout for smaller phone screens */
+  .post-item {
+    padding: 8px;
+    margin-left: -10px;
+    margin-right: 30px;
+    max-width: 90%;
+  }
+
+  /* Adjust filter section for phone screens */
+  .filter-section {
+    padding: 0;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  /* Adjust detail button padding and font size for phones */
+  .detail-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Adjust pagination padding for phone screens */
+  .pagination {
+    padding: 0 20px;
+  }
+
+  /* Adjust pagination button size for phones */
+  .pagination-button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
 }
