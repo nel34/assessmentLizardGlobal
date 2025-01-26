@@ -1,0 +1,62 @@
+/* Global container for centering content and managing layout */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Styling for the header section */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for the main header link (title) */
+.header-title {
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* Styling for the main header title */
+.header-title h1 {
+  margin: 0;
+}
+
+/* Styling for the subtitle under the header */
+.header-subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Styling for the footer section */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+/* Media queries for devices with max-width of 768px */
+@media (max-width: 768px) {
+  /* Adjust padding for smaller screens */
+  .container {
+    padding: 10px;
+  }
+}
+
+/* Media queries for devices with max-width of 480px */
+@media (max-width: 480px) {
+  /* Reduce container padding for very small screens */
+  .container {
+    padding: 5px;
+  }
+
+  /* Adjust font size of the header title for small screens */
+  .header-title h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust font size of the header subtitle for small screens */
+  .header-subtitle {
+    font-size: 0.9rem;
+  }
+}

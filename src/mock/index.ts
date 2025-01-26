@@ -1,45 +1,46 @@
 import { createServer, Response } from 'miragejs';
 import data from './data.json';
 
-// Définir un type pour un post (facultatif mais recommandé)
+// Type definition for a single post
 interface Post {
   id: string;
   title: string;
   author: {
-    name: string;
-    avatar: string;
+    name: string; // Name of the author
+    avatar: string; // URL or path to the author's avatar
   };
   categories: {
     id: string;
-    name: string;
+    name: string; // Name of the category
   }[];
-  publishDate: string;
-  summary: string;
+  publishDate: string; // Date the post was published
+  summary: string; // Summary of the post
 }
 
-// Définir un type pour le fichier `data.json` (facultatif mais structuré)
+// Type definition for the structure of `data.json`
 interface Data {
-  posts: Post[];
+  posts: Post[]; // Array of posts
 }
 
 createServer({
   routes() {
-    this.namespace = 'api';
+    this.namespace = 'api'; // Prefix for all API routes
 
-    // Route to get all posts
+    // Route to fetch all posts
     this.get('/posts', () => {
-      return data as Data;
+      return data as Data; // Return the data cast to the `Data` type
     });
 
-    // Route to get a specific post by ID
+    // Route to fetch a specific post by ID
     this.get('/posts/:id', (schema, request) => {
       const id = request.params.id; // Extract the ID from the URL
-      const post = (data as Data).posts.find((post) => post.id === id); // Find the post by ID
+      const post = (data as Data).posts.find((post) => post.id === id); // Find the post matching the ID
 
       if (post) {
         return post; // Return the post if found
       } else {
-        return new Response(404, {}, { error: 'Post not found' }); // Return a 404 error if not found
+        // Return a 404 response if the post is not found
+        return new Response(404, {}, { error: 'Post not found' });
       }
     });
   },

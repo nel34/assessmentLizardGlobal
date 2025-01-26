@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import MainPage from './MainPage';
 import PostDetail from './PostDetail';
-import '../styles/App.css'; // Global styles
+import '../styles/App.scss'; // Global styles
 
 const App: React.FC = () => {
   return (
