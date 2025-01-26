@@ -2,35 +2,61 @@ import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { fetchPosts } from '../Services/api';
 import '../styles/MainPage.css';
-import { CSSTransition, TransitionGroup } from 'react-transition-group'; // Import animation components
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-function MainPage() {
-  const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
-  const [visiblePosts, setVisiblePosts] = useState([]);
-  const [categories, setCategories] = useState([]);
+// Define types for the post and category structures
+interface Category {
+  id: string;
+  name: string;
+}
+
+interface Author {
+  name: string;
+  avatar: string;
+}
+
+interface Post {
+  id: string;
+  title: string;
+  author: Author;
+  categories: Category[];
+}
+
+// MainPage component
+const MainPage: React.FC = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
+  const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const postsPerPage = 5;
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchParams, setSearchParams] = useSearchParams();
 
   // Get initial filter from query string
   const initialCategory = searchParams.get('category') || 'All';
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
 
+  // Fetch posts
   useEffect(() => {
     const getPosts = async () => {
-      const data = await fetchPosts();
+      const data: { posts: Post[] } = await fetchPosts();
       setPosts(data.posts);
       setFilteredPosts(data.posts);
       setVisiblePosts(data.posts.slice(0, postsPerPage));
 
-      const uniqueCategories = ['All', ...new Set(data.posts.flatMap((post) => post.categories.map((c) => c.name)))];
+      const uniqueCategories = [
+        'All',
+        ...new Set(
+          data.posts.flatMap((post: Post) => post.categories.map((category) => category.name))
+        ),
+      ];
       setCategories(uniqueCategories);
     };
 
     getPosts();
   }, []);
 
+  // Filter posts based on the selected category
   useEffect(() => {
     if (selectedCategory === 'All') {
       setFilteredPosts(posts);
@@ -40,6 +66,7 @@ function MainPage() {
     setCurrentPage(1);
   }, [selectedCategory, posts]);
 
+  // Update visible posts when the current page changes
   useEffect(() => {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -47,12 +74,12 @@ function MainPage() {
   }, [currentPage, filteredPosts]);
 
   // Handle category change and update query string
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setSearchParams({ category }); // Update the query string
   };
 
-  const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
+  const handlePageChange = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <main>
@@ -130,6 +157,6 @@ function MainPage() {
       </nav>
     </main>
   );
-}
+};
 
 export default MainPage;
