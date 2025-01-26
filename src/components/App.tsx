@@ -6,7 +6,7 @@ import MainPage from './MainPage';
 import PostDetail from './PostDetail';
 import '../styles/App.css'; // Global styles
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="container">
       <Router>
@@ -24,6 +24,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
