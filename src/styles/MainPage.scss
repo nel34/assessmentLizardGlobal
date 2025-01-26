@@ -12,16 +12,16 @@
 }
 
 .post-item:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Augmentation de l'ombre */
 }
 
-/* Post header (logo and title) */
+
 .post-header {
-  flex: 1; /* Allow content to take available space */
+  flex: 1;
   display: flex;
-  flex-direction: column; /* Stack title under logo */
-  align-items: flex-start; /* Align text to the left */
-  gap: 10px; /* Add spacing between the logo and title */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .post-logo {
@@ -30,7 +30,6 @@
   border-radius: 50%;
 }
 
-/* Post categories styling */
 .post-categories {
   margin-top: 20px;
 }
@@ -66,25 +65,26 @@
 .detail-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #444; /* Gris foncé */
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .detail-button:hover {
-  background-color: #0056b3;
+  background-color: #333; /* Gris encore plus foncé */
+  transform: scale(1.1); /* Zoom sur le bouton */
 }
 
 /* Filter Section */
 .filter-section {
   margin-bottom: 20px;
   display: flex;
-  align-items: center; /* Align label and select dropdown */
-  gap: 10px; /* Add spacing between label and dropdown */
+  align-items: center;
+  gap: 10px;
 }
 
 .filter-label {
@@ -93,26 +93,29 @@
 
 .filter-wrapper {
   display: inline-block;
-  border: 1px solid #007bff;
-  border-radius: 5px;
+  border: 2px solid black;
+  border-radius: 15px;
   overflow: hidden;
 }
 
 .filter-select {
   padding: 8px 12px;
-  border: none;
-  border-radius: 0;
+  border: 2px solid black; /* Ajout d'une bordure noire */
+  border-radius: 10px; /* Ajout de coins arrondis */
   font-size: 1rem;
-  color: #007bff;
+  color: black; /* Texte noir */
   appearance: none;
   outline: none;
   cursor: pointer;
   background-color: #f9f9f9;
+  transition: all 0.3s ease-in-out; /* Animation sur le hover */
 }
 
 .filter-select:hover {
-  background-color: #e6f2ff;
+  background-color: #e6e6e6; /* Change légèrement la couleur au hover */
+  transform: scale(1.05); /* Agrandissement léger au hover */
 }
+
 
 /* Pagination styling */
 .pagination {
@@ -125,21 +128,24 @@
   padding: 10px 15px;
   margin: 0 5px;
   border: 1px solid #ccc;
-  background-color: #007bff;
+  background-color: #333; /* Same as the "Detail" button */
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .pagination-button:hover {
-  background-color: #0056b3;
+  background-color: #000; /* Same hover effect as the "Detail" button */
+  transform: scale(1.05);
 }
 
 .pagination-button-active {
-  background-color: #0056b3;
+  background-color: #000; /* To differentiate it from other buttons */
   color: #fff;
+  border: 2px solid red; /* Add a red border to the active button */
+  border-radius: 5px;
 }
 
 /* Animations for post transitions */
@@ -166,7 +172,7 @@
 @media (max-width: 768px) {
   .post-item {
     padding: 10px;
-    flex-direction: column; /* Stack content vertically for smaller screens */
+    flex-direction: column;
   }
 
   .post-title {
@@ -179,7 +185,7 @@
   }
 
   .pagination-button {
-    padding: 8px 12px;
+    padding: 8px 15px;
     font-size: 0.9rem;
   }
 }
