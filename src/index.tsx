@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'; // Import the new API
 import './mock'; // Include mock API
-import './styles/index.css'; // Include styles
+import './styles/index.scss'; // Include styles
 import App from './components/App'; // Include application component
 
 // Get the root element from the DOM

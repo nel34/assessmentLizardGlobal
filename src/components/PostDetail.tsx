@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '../styles/PostDetail.css'; // PostDetail-specific styles
+import '../styles/PostDetail.scss'; // PostDetail-specific styles
 
 // Define types for post structure
 interface Author {

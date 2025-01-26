@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { fetchPosts } from '../Services/api';
-import '../styles/MainPage.css';
+import '../styles/MainPage.scss';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Define types for the post and category structures
