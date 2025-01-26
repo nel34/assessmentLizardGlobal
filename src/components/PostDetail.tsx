@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import '../styles/PostDetail.scss'; // PostDetail-specific styles
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
+import '../styles/PostDetail.scss';
 
 // Define types for post structure
 interface Author {
@@ -17,6 +17,7 @@ interface Post {
 
 const PostDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Type the parameter as a string
+  const navigate = useNavigate(); // Hook to navigate programmatically
   const [post, setPost] = useState<Post | null>(null); // Use a Post type or null
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -59,6 +60,11 @@ const PostDetail: React.FC = () => {
           {post?.author.name}
         </p>
       </article>
+      
+      {/* Back to Main Page Button */}
+      <button className="back-to-main-button" onClick={() => navigate('/')}>
+        Back to Main Page
+      </button>
     </div>
   );
 };
